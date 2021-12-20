@@ -77,14 +77,14 @@ if(isset($_POST['register'])){
     $sql = "INSERT INTO tbl_registration(uname, uaddress, uphone, emailid, aadharno, company_registration, gender, dob, place, district, localbody, ward, companyname, description, password, status) values
     ('$name','$address', '$number', '$email', '$adhaar', '$company_registration', '$gender', '$date', '$place', '$district', '$localbody', '$ward', '$company_name', '$description', '$hash', $userType)";
     if(mysqli_query($conn, $sql)){
-      header('Location: ./login.php');
+      header('Location: ./login');
     }else{
       echo mysqli_error($conn);
     }
   }else if($flag==0){
     $status = encrypt($userType);
     $error = encrypt("Error");
-    header("Location: register.php?tag=$status&error=$error");
+    header("Location: register?tag=$status&error=$error");
   }
   
 }
@@ -213,7 +213,7 @@ if(isset($_POST['register'])){
           <div class="form-row py-4">
             <div class="offset-1 col-lg-10">
               <center><input type="submit" name="register" value="Register" class="btn btn-success" id="register"></center><br>
-              <p style="color: white; margin: 0;">Already have an account? &nbsp; <a href="./login.php"
+              <p style="color: white; margin: 0;">Already have an account? &nbsp; <a href="./login"
                   style="color: lightblue;">Sign in</a><br><br></p>
             </div>
           </div>

@@ -3,6 +3,8 @@
 require_once './include/connect.php';
 require './encdec.php';
 
+session_start();
+
 if(isset($_GET['error'])){
   $sSalt = '20adeb83e85f03cfc84d0fb7e5f4d290';
   $sSalt = substr(hash('sha256', $sSalt, true), 0, 32);
@@ -26,12 +28,13 @@ if(isset($_POST['login'])){
       if($hash == false){
         $status = encrypt($userType);
         $error = encrypt("Error");
-        header("Location: login.php?error=$error");
+        header("Location: login?error=$error");
         exit();
       }
       else if($hash == true){
-          header("Location: ./index.php");
-          exit();
+        $_SESSION['regid'] = $row['regid'];
+        header("Location: ./index");
+        exit();
       }
   }
 
@@ -76,8 +79,8 @@ if(isset($_POST['login'])){
           </div>
           <div class="form-row py-4">
             <div class="offset-1 col-lg-10">
-              <p  style="color: white;">Dont't have account? &nbsp; <a href="./register.php?tag=<?php echo $id("0") ?>" style="color: lightblue;">Sign up</a></p>
-              <p  style="color: white;">For company please use &nbsp; <a href="./register.php?tag=<?php echo $id("1") ?>" style="color: lightblue;">Sign up</a></p>
+              <p  style="color: white;">Dont't have account? &nbsp; <a href="./register?tag=<?php echo $id("0") ?>" style="color: lightblue;">Sign up</a></p>
+              <p  style="color: white;">For company please use &nbsp; <a href="./register?tag=<?php echo $id("1") ?>" style="color: lightblue;">Sign up</a></p>
             </div>
           </div>
         </form>
