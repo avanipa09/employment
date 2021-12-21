@@ -51,14 +51,15 @@ if(isset($_POST['login'])){
   <title>Login Page</title>
   <link rel="stylesheet" href="./assets/css/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/css/login.css">
+  <script src="./assets/jquery-3.6.0.js"></script>
 </head>
 
 <body>
 
   <div class="container">
     <div class="row justify-content-md-center" style="margin-top: 10%;">
-      <div class="col-2"></div>
-      <div class="col-8 col-md-4 login-main-div"><br><br>
+      <div id="col1" class="col-2"></div>
+      <div id="col2" class="col-8 col-md-4 login-main-div"><br><br>
         <center><b class="login-head">Login</b></center><br>
         <?php
           if(isset($_GET['error'])){
@@ -85,9 +86,21 @@ if(isset($_POST['login'])){
           </div>
         </form>
       </div>
-      <div class="col-2"></div>
+      <div id="col3" class="col-2"></div>
     </div>
   </div>
 </body>
+
+<script>
+  $(document).ready(function () {
+
+    if ($(window).width() < 991) {
+      $("#col1").attr('class', 'col-1');
+      $("#col2").attr('class', 'col-10');
+      $("#col3").attr('class', 'col-1');
+      $("#col2").addClass('login-main-div');
+    }
+  });
+</script>
 
 </html>

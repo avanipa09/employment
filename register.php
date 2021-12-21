@@ -5,10 +5,16 @@ require './encdec.php';
 
 $userType = "";
 $register = "";
+$enable = "";
 
 if(isset($_GET['tag'])){
   $data = $_GET['tag'];
   $userType = decrypt($data);
+  $enable=1;
+}
+
+if($enable!=1){
+  header('Location: login');
 }
 
 if(isset($_GET['error'])){
@@ -213,8 +219,7 @@ if(isset($_POST['register'])){
           <div class="form-row py-4">
             <div class="offset-1 col-lg-10">
               <center><input type="submit" name="register" value="Register" class="btn btn-success" id="register"></center><br>
-              <p style="color: white; margin: 0;">Already have an account? &nbsp; <a href="./login"
-                  style="color: lightblue;">Sign in</a><br><br></p>
+              <p style="color: white; margin: 0;">Already have an account? &nbsp; <a href="./login" style="color: lightblue;">Sign in</a><br><br></p>
             </div>
           </div>
         </form>

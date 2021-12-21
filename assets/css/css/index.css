@@ -1,0 +1,130 @@
+:root{
+    --nav-bg: rgba(52, 247, 107, 0.7);
+    --body-back: rgb(0, 255, 157);
+    --main-nav: rgba(52, 247, 107, 0.7);
+}
+*{
+    padding:0;
+    margin:0;
+    font-family: sans-serif; 
+}
+a{
+    text-decoration: none;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a:hover{
+    color: black;
+}
+body{
+    background-color: var(--body-back);
+}
+.container-fluid{
+    width: 100%;;
+}
+.main-nav{
+    width: 100%;
+    /* height: auto; */
+    background-color: var(--main-nav)
+}
+.logo{
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+}
+.nav-list{
+    display:flex-end;
+    justify-content: center;
+    padding: 10px;
+    margin-right: 40px;
+}
+.nav-list li{
+    float: right;
+    display: inline;
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.nav-dropdown{
+    margin-top: 0px;
+    border-radius: 10px; 
+    background-color: var(--nav-bg);
+    width: 20px;
+}
+.nav-dropdown-active{
+    display: grid;
+}
+.nav-dropdown a:hover{
+    background-color: var(--nav-bg);
+    border-radius: 10px;
+}
+.nav-dropdown li{
+    float: left;
+    display: block;
+}
+.dropdown-items{
+    display: block;
+}
+#menubar{
+    font-size: 30px;
+    display: none;
+}
+#menubarI{
+    float: right; 
+    font-size: 22px;
+    margin: 10px;
+}
+.mobile_nav{
+    margin-top: 40px;
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    margin-left: -45px;
+    display: none;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--nav-bg);
+    z-index: 1;
+}
+.mobile_nav ul{
+    padding: 0;
+    font-size: 1rem;
+}
+.mobile_nav ul li{
+    padding: 5px 5px 5px 20px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -5%;
+    width: 100%;
+    margin-right: 70px;
+}
+.mobile_nav ul a{
+    text-decoration: none;
+    color: black;
+}
+.mobile_nav ul li a:active{
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+.mobile_nav ul li:hover{
+    background-color: aqua;
+}
+.mobile-nav-sub1, .mobile-nav-sub2{
+    display: none;
+}
+
+@media (max-width: 992px){
+    #menubar{
+        display:block;
+    }
+    .menubar{
+        display:block;
+    }
+    .lap_nav{
+        display: none;
+    }
+}
