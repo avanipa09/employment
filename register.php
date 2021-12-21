@@ -105,6 +105,7 @@ if(isset($_POST['register'])){
   <title><?php echo $register ?></title>
   <link rel="stylesheet" href="./assets/css/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/css/login.css">
+  <link rel="shortcut icon" type="image/jpg" href="./assets/images/logo.png"/>
   <script src="./assets/jquery-3.6.0.js"></script>
 </head>
 

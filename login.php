@@ -52,6 +52,7 @@ if(isset($_POST['login'])){
   <link rel="stylesheet" href="./assets/css/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/css/login.css">
   <script src="./assets/jquery-3.6.0.js"></script>
+  <link rel="shortcut icon" type="image/jpg" href="./assets/images/logo.png"/>
 </head>
 
 <body>

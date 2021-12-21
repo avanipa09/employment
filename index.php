@@ -1,29 +1,6 @@
 <?php
 
-require_once('./include/connect.php');
-session_start();
-
-$status = "";
-$userType = "";
-$id = "";
-
-if(isset($_SESSION['regid'])){
-    $id = $_SESSION['regid'];
-    // echo $id;
-}
-if($id){
-    $sql = "SELECT * FROM tbl_registration where regid=$id";
-    $result = mysqli_query($conn, $sql);
-    while($row = mysqli_fetch_assoc($result)){
-        $status = $row['status'];
-    }
-}
-
-if($status==0){
- $userType = "User";
-}else if($status==1){
-    $userType = "Company";
-}
+require './navbar.php';
 
 //echo $userType;
 
@@ -44,11 +21,12 @@ if($status==0){
 
 <body>
 
-    <div class="main-nav">
+
+    <!-- <div class="main-nav">
         <label id="menubar"><i id="menubarI" style="float: left; font-size: 22px;" class="bi bi-list menubar"></i></label>
         <div class="row lap_nav">
             <div class="col-1">
-                <img class="logo" src="./assets/images/logo.png" alt="">
+                <a href="./index"><img class="logo" src="./assets/images/logo.png" alt=""></a>
             </div>
             <div class="col-11">
                 <ul class="nav-list">
@@ -59,7 +37,13 @@ if($status==0){
                     <?php
                         }
                     ?>
-                    <a href="./login"><li>Sign In</li></a>
+                    <?php
+                        if($userType==null){
+                    ?>
+                        <a href="./login"><li>Sign In</li></a>
+                    <?php
+                        }
+                    ?>
                     <li class="nav-item " id="schemes">
                         <a class="text_black" href="#" id="navbarDropdown" aria-expanded="false">Schemes</a>
                         <ul class="dropdown-menu nav-dropdown" id="schemes_dropdown" aria-labelledby="navbarDropdown">
@@ -76,9 +60,16 @@ if($status==0){
                             <a href=""><li>haaas</li></a>
                         </ul>
                     </li>
-                    <li>Contact Us</li>
-                    <li>About</li>
-                    <li>Home</li>
+                    <a href="./contact"><li>Contact Us</li></a>
+                    <a href="./about"><li>About</li></a>
+                    <a href="./index"><li>Home</li></a>
+                    <?php
+                        if($userType!=null){
+                    ?>
+                        <a href="./account"><li style="color: green">Welcome <?php echo $username ?></li></a>
+                    <?php
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -105,7 +96,7 @@ if($status==0){
             <a href="./login"><li>Sign In</li></a>
             <a href="./logout"><li>Logout</li></a>
         </ul>
-    </div>
+    </div> -->
 
 </body>
 <script>
