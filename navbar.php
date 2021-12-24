@@ -11,6 +11,17 @@ if(isset($_SESSION['regid'])){
     $id = $_SESSION['regid'];
     // echo $id;
 }
+
+ ///alert message ///
+
+$sql="SELECT * FROM tbl_alert";
+$result =mysqli_query($conn,$sql);
+while($row = mysqli_fetch_assoc($result)){
+    $stat = $row['status'];
+    $alertmsg= $row ['message'];
+}
+//echo $alertmsg;
+
 if($id){
     $sql = "SELECT * FROM tbl_registration where regid=$id";
     $result = mysqli_query($conn, $sql);
@@ -24,7 +35,21 @@ if($status==0){
  $userType = "User";
 }else if($status==1){
     $userType = "Company";
+}else if($status==2){
+    $userType = "Staff";
+}else if($status==3){
+    $userType = "Officer";
 }
+
+?>
+<?php
+    if($stat==1){
+?>
+    <div class="alert-danger custom-alert">
+        <?php echo $alertmsg; ?>
+    </div>
+<?php
+    }
 ?>
 <div class="main-nav">
         <label id="menubar"><i id="menubarI" style="float: left; font-size: 22px;" class="bi bi-list menubar"></i></label>
@@ -70,7 +95,7 @@ if($status==0){
                     <?php
                         if($userType!=null){
                     ?>
-                        <a href="./account"><li style="color: green">Welcome <?php echo $username ?></li></a>
+                        <a href="./account"><li style="color: green">Welcome <?php echo $userType ?></li></a>
                     <?php
                         }
                     ?>

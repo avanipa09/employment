@@ -1,6 +1,6 @@
 :root{
     --nav-bg: rgba(52, 247, 107, 0.7);
-    --body-back: rgb(0, 255, 157);
+    --body-back: rgb(255, 255, 255);
     --main-nav: rgba(52, 247, 107, 0.7);
 }
 *{
@@ -16,6 +16,10 @@ a{
 }
 li{
     list-style: none;
+}
+.custom-alert{
+    padding: 5px 10px 5px 10px;
+    text-align: center;
 }
 a:hover{
     color: black;

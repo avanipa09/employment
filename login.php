@@ -77,7 +77,7 @@ if(isset($_POST['login'])){
           <div class="container">
             <input type="email" name="email" class="inp px-3" placeholder="Email id" ><br>
             <input type="password" name="password" class="inp px-3" placeholder="Password" ><br><br>
-            <center><input type="submit" name="login" value="Register" class="btn btn-success" id="register"></center><br>
+            <center><input type="submit" name="login" value="Login" class="btn btn-success" id="register"></center><br>
           </div>
           <div class="form-row py-4">
             <div class="offset-1 col-lg-10">

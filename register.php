@@ -229,10 +229,11 @@ if(isset($_POST['register'])){
     </div>
   </div>
 </body>
-<!--
+
 <script>
   $(document).ready(function () {
     $("#form").submit(function (e) {
+      alert('hai');
       var passwd = $("#passwd").val();
       var confirm_passwd = $("#confirm_passwd").val();
       var phone = $("#phone").val();
@@ -272,5 +273,5 @@ if(isset($_POST['register'])){
 
   });
 </script>
--->
+
 </html>
